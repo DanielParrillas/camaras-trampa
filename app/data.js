@@ -2,8 +2,12 @@
 const fs = require('fs')
 const path = require('path')
 
-const readJSON = () => {
-    const pathJSON = path.join(__dirname, './data/data.json')
+let actividades = null
+let camaras = null
+let especies = null
+
+const readJSON = (fileJSON) => {
+    const pathJSON = path.join(__dirname, `./data/${fileJSON}`)
     const data = fs.readFileSync(pathJSON, 'utf-8')
     return data
 };
@@ -12,8 +16,12 @@ const writeJSON = (data) => {
     fs.writeFileSync(pathJSON, data)
 };
 
-let data = readJSON
+actividades = readJSON('actividades.json')
+camaras = readJSON('camaras.json')
+especies = readJSON('especies.json')
 
 module.exports = {
-    "data": data
+    "actividades": actividades,
+    "camaras": camaras,
+    "especies": especies
 }

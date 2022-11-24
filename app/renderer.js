@@ -1,6 +1,15 @@
 //* DOM Elements
-const getData = require('./data')
+const data = require('./data')
 
-let info = getData.data()
+//* Data
+const actividades = data.actividades
+const camaras = data.camaras
+const especies = data.especies
 
-console.log(info)
+let registros = []
+
+function iniciarApp() {
+    
+}
+
+window.addEventListener('load', iniciarApp)
