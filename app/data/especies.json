@@ -1,0 +1,20 @@
+[
+    {
+        "id":1,
+        "comun":"Caiman, Caiman de anteojos",
+        "clasificacion":"Reptiles",
+        "genero":"Caiman",
+        "especie":"crocodilus",
+        "subespecie":"fuscus",
+        "categoria":"En Peligro"
+    },
+    {
+        "id":2,
+        "comun":"Dragoncillo",
+        "clasificacion":"Reptiles",
+        "genero":"Abriona",
+        "especie":"acutus",
+        "subespecie":"fuscus",
+        "categoria":""
+    }
+]

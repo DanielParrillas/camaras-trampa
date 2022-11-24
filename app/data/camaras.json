@@ -1,0 +1,16 @@
+[
+    {
+        "id":1,
+        "nombre":"01C",
+        "latitud":13.7645,
+        "longitud":-88.19825,
+        "sendero": "La Quebrachera"
+    },
+    {
+        "id":2  ,
+        "nombre":"02C",
+        "latitud":13.7955,
+        "longitud":-89.2545,
+        "sendero": "La Garrobera"
+    }
+]
