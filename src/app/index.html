@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wild Records</title>
-    <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="./style.css">
+    <!-- *Styles -->
+    <link rel="stylesheet" href="./css/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
     <div class="background">
@@ -96,24 +97,37 @@
                 </section>
                 <section>
                     <h4>Observaciones</h4>
-                    <div>
-                        <label for="select-presencia-humana">Presencia humana</label>
-                        <select name="select-presencia-humana" id="select-presencia-humana">
-                            <option value="Guarda recursos">🌲 Guarda recursos</option>
-                            <option value="Persona civil">🚶 Persona civil</option>
-                            <option value="Policía o fuerza armada">👮 Policía o fuerza armanda</option>
-                            <option value="Cazador">🏹 Cazador</option>
-                        </select>
+                    <div class="form-group">
+                        <label>Presencia humana</label>
+                        <div>
+                            <div>
+                                <input type="checkbox" id="checkbox-guardarecurso" name="checkbox-guardarecurso" value="Guarda recursos">🌲 Guardarecursos</input>
+                                <label for="checkbox-guardarecurso"></label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="checkbox-persona-civil" name="checkbox-persona-civil" value="Persona civil">🚶 Persona civil</input>
+                                <label for="checkbox-persona-civil"></label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="checkbox-policia-fuerza-armada" name="checkbox-policia-fuerza-armada" value="Policía o fuerza armada">👮 Policía o fuerza armanda</input>
+                                <label for="checkbox-policia-fuerza-armada"></label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="checkbox-cazador" name="checkbox-cazador" value="Cazador">🏹 Cazador</input>
+                                <label for="checkbox-cazador"></label>
+                            </div>
+                        </div>
                     </div>
                     <div>
                         <label for="">Observaciones</label>
-                        <textarea name="textarea-observaciones" id="textarea-observaciones" cols="30" rows="10"></textarea>
+                        <textarea name="textarea-observaciones" id="textarea-observaciones"></textarea>
                     </div>
                 </section>
             </form>
         </div>
     </div>
 
+    <!-- *Scripts -->
     <script>
         require('./renderer.js')
     </script>

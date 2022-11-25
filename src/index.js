@@ -9,5 +9,5 @@ app.on('ready', () => {
             contextIsolation: false
         }
     })
-    mainWindow.loadFile(__dirname + '/index.html')
+    mainWindow.loadFile(__dirname + '/app/index.html')
 });

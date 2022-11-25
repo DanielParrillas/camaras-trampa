@@ -1,0 +1,32 @@
+:root {
+    // *-------- Const Colors --------
+    --color-primary: #326dee;
+    --color-secondary: #1ac888;
+    --color-danger: #d32752;
+    --color-success: #3BACD9;
+    --color-warning: #f6c31c;
+    --color-dark: #303746;
+    --color-light: #fff;
+
+    // *-------- Variable Colors --------
+    --color-1: #2E3640;
+    --color-2: #D9D9D9;
+    --color-3: #212529;
+
+    // *-------- Fonts --------
+    --main-font: poppins, sans-serif;
+}
+
+.dark-theme {
+    // *-------- Variable Colors --------
+    --color-1: #fff;
+    --color-2: #D9D9D9;
+}
+
+// *-------- Test Colors --------
+//Estos colores son usados para testear tamaños por lo tanto no se incluyen en el diseño final
+$color-test-1: pink;
+$color-test-2: coral;
+$color-test-3: olive;
+$color-test-4: BlueViolet;
+// ================ END OF SASS VARIABLES ================

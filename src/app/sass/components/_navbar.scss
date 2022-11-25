@@ -1,0 +1,13 @@
+nav {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    width: 100vw;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+
+    a {
+        color: var(--color-light);
+    }
+}

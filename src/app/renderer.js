@@ -1,5 +1,5 @@
 //* DOM Elements
-const data = require('./data')
+const data = require('../data/data')
 
 //* Data
 const actividades = data.actividades
