@@ -65,7 +65,7 @@ a {
   height: 100vh;
   width: 100vw;
   justify-content: center;
-  overflow-y: auto;
+  align-items: center;
 }
 #new-record-section form {
   background: #fff;
@@ -73,6 +73,9 @@ a {
   padding: 3rem;
   border-radius: 1rem;
   height: 50rem;
+  overflow-y: scroll;
+  height: 90%;
+  max-width: 95%;
 }
 #new-record-section form > section {
   margin-bottom: 1rem;
@@ -80,7 +83,7 @@ a {
 #new-record-section form > section > div {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   padding: 0 2rem;
 }
 #new-record-section form label {
@@ -100,7 +103,19 @@ nav a {
   color: var(--color-light);
 }
 
+form label {
+  font-weight: 400;
+  font-size: medium;
+}
 form .form-group {
   display: flex;
+  flex-direction: column;
+}
+form .form-group > div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+form .form-group-block {
   flex-direction: column;
 }

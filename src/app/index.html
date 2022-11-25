@@ -36,9 +36,9 @@
                 </section>
                 <section>
                     <h4>Datos del video</h4>
-                    <div>
+                    <div class="form-group-block">
                         <label for="select-especie">Especie</label>
-                        <select name="select-especie" id="selecet-especie">
+                        <select name="select-especie" id="select-especie">
                             <option disabled selected value>Selecciona una especie</option>
                         </select>
                     </div>
@@ -62,7 +62,7 @@
                     </div>
                     <div>
                         <label>Marque las actividades que vio</label>
-                        <div>
+                        <div id="checkbox-group-actividades">
                             <label for=""><input type="checkbox" name="" id="">Actividad 1</label>
                         </div>
                     </div>
@@ -74,8 +74,8 @@
                 <section>
                     <h4>Datos del ambiente</h4>
                     <div>
-                        <label for="input-clima">Clima</label>
-                        <select name="input-clima" id="input-clima">
+                        <label for="select-clima">Clima</label>
+                        <select name="select-clima" id="select-clima">
                             <option value="Despejado">🌤️ Despejado</option>
                             <option value="Lluvioso">🌧️ Lluvioso</option>
                             <option value="Nublado">🌫️ Nublado</option>
@@ -99,23 +99,11 @@
                     <h4>Observaciones</h4>
                     <div class="form-group">
                         <label>Presencia humana</label>
-                        <div>
-                            <div>
-                                <input type="checkbox" id="checkbox-guardarecurso" name="checkbox-guardarecurso" value="Guarda recursos">🌲 Guardarecursos</input>
-                                <label for="checkbox-guardarecurso"></label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="checkbox-persona-civil" name="checkbox-persona-civil" value="Persona civil">🚶 Persona civil</input>
-                                <label for="checkbox-persona-civil"></label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="checkbox-policia-fuerza-armada" name="checkbox-policia-fuerza-armada" value="Policía o fuerza armada">👮 Policía o fuerza armanda</input>
-                                <label for="checkbox-policia-fuerza-armada"></label>
-                            </div>
-                            <div>
-                                <input type="checkbox" id="checkbox-cazador" name="checkbox-cazador" value="Cazador">🏹 Cazador</input>
-                                <label for="checkbox-cazador"></label>
-                            </div>
+                        <div id="checkbox-group-humanos">
+                            <label for="checkbox-guardarecurso"><input type="checkbox" id="checkbox-guardarecurso" name="checkbox-guardarecurso" value="Guarda recursos">🌲 Guardarecursos</input></label>
+                            <label for="checkbox-persona-civil"><input type="checkbox" id="checkbox-persona-civil" name="checkbox-persona-civil" value="Persona civil">🚶 Persona civil</input></label>
+                            <label for="checkbox-policia-fuerza-armada"><input type="checkbox" id="checkbox-policia-fuerza-armada" name="checkbox-policia-fuerza-armada" value="Policía o fuerza armada" class="require">👮 Policía o fuerza armanda</label>
+                            <label for="checkbox-cazador"><input type="checkbox" id="checkbox-cazador" name="checkbox-cazador" value="Cazador">🏹 Cazador</label>
                         </div>
                     </div>
                     <div>
@@ -129,7 +117,7 @@
 
     <!-- *Scripts -->
     <script>
-        require('./renderer.js')
+        require('./js/renderer.js')
     </script>
 </body>
 </html>

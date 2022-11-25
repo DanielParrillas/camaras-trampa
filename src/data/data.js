@@ -12,8 +12,12 @@ const writeJSON = (data) => {
     fs.writeFileSync(pathJSON, data)
 };
 
+const actividadesJSON = JSON.parse(readJSON('actividades.json'))
+const camarasJSON = JSON.parse(readJSON('camaras.json'))
+const especiesJSON = JSON.parse(readJSON('especies.json'))
+
 module.exports = {
-    "actividades": readJSON('actividades.json'),
-    "camaras": readJSON('camaras.json'),
-    "especies": readJSON('especies.json')
+    "actividades": actividadesJSON,
+    "camaras": camarasJSON,
+    "especies": especiesJSON
 }

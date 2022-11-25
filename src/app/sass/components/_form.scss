@@ -1,7 +1,18 @@
 form {
+    label {
+        font-weight: 400;
+        font-size: medium;
+    }
     .form-group {
         display: flex;
         flex-direction: column;
-        // flex-wrap: wrap;
+        & > div {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        &-block {
+            flex-direction: column;
+        }
     }
 }
