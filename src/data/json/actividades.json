@@ -1,10 +1,12 @@
 [
     {
         "id":1,
-        "actividad":"Buscando comida"
+        "actividad": "Buscando comida",
+        "emoticon": "🍲"
     },
     {
         "id":2,
-        "actividad":"Cazando"
+        "actividad":"Cazando",
+        "emoticon":  "🏹"
     }
 ]

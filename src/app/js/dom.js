@@ -37,9 +37,23 @@ const rellenarSelectEspecies = function (especies) {
     console.log("%cSe relleno el select de especies", "color: #1ac888")
 }
 
+const rellenarCheckBoxGroupActividades = function (actividades) {
+    let name = null
+    let contenido = null
+    actividades.forEach(actividad => {
+        name = "actividad" + actividad.id
+        contenido = actividad.emoticon + " " + actividad.actividad
+        checkboxGroupActividades.innerHTML += `
+        <label for="${name}"><input type="checkbox" name="${name}" id="${name}" value="${actividad.id}">${contenido}</label>
+        `
+    })
+    console.log("%cSe relleno el checkBoxGroup de actividades", "color: #1ac888")
+}
+
 module.exports = {
     "rellenarSelectCamaras": rellenarSelectCamaras,
     "rellenarSelectEspecies": rellenarSelectEspecies,
+    "rellenarCheckBoxGroupActividades": rellenarCheckBoxGroupActividades,
     "sections": {
         "newRecordSection": newRecordSection
     },

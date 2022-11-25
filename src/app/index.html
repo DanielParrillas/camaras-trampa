@@ -12,106 +12,107 @@
 <body>
     <div class="background">
         <div class="new-record-section" id="new-record-section">
-            <form action="" id="registro">
-                <section>
-                    <h4>Datos del video</h4>
-                    <div>
-                        <label for="url-input">Link del video</label>
-                        <input type="url" name="url-input" id="url-input">
-                    </div>
-                    <div>
-                        <label for="camara-select">Cámara</label>
-                        <select name="camara-select" id="camara-select">
-                            <option disabled selected value>Selecciona una camara</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="input-date-record">Fecha</label>
-                        <input type="date" name="input-date-record" id="input-date-record">
-                    </div>
-                    <div>
-                        <label for="input-time-record">Hora</label>
-                        <input type="time" name="input-time-record" id="input-time-record">
-                    </div>
-                </section>
-                <section>
-                    <h4>Datos del video</h4>
-                    <div class="form-group-block">
-                        <label for="select-especie">Especie</label>
-                        <select name="select-especie" id="select-especie">
-                            <option disabled selected value>Selecciona una especie</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="select-sexo">Sexo</label>
-                        <select name="select-sexo" id="select-sexo">
-                            <option disabled selected value>Selecciona el sexo</option>
-                            <option value="Macho">🟦Macho</option>
-                            <option value="Hembra">🟪Hembra</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="select-edad">Edad</label>
-                        <select name="select-Edad" id="select-edad">
-                            <option disabled selected value>Selecciona el edad</option>
-                            <option value="Macho">Adulto</option>
-                            <option value="Hembra">Juvenil</option>
-                            <option value="Hembra">Cría</option>
-                            <option value="Hembra">No identificado</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label>Marque las actividades que vio</label>
-                        <div id="checkbox-group-actividades">
-                            <label for=""><input type="checkbox" name="" id="">Actividad 1</label>
+            <div class="container-round-border">
+                <form action="" id="registro">
+                    <section>
+                        <h4>Datos del video</h4>
+                        <div>
+                            <label for="url-input">Link del video</label>
+                            <input type="url" name="url-input" id="url-input">
                         </div>
-                    </div>
-                    <div>
-                        <label for="input-cantidad">Cantidad de especies</label>
-                        <input type="number" name="input-cantidad" id="input-cantidad">
-                    </div>
-                </section>
-                <section>
-                    <h4>Datos del ambiente</h4>
-                    <div>
-                        <label for="select-clima">Clima</label>
-                        <select name="select-clima" id="select-clima">
-                            <option value="Despejado">🌤️ Despejado</option>
-                            <option value="Lluvioso">🌧️ Lluvioso</option>
-                            <option value="Nublado">🌫️ Nublado</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="input-temperatura">Temperatura</label>
-                        <input type="number" name="input-temperatura" id="input-temperatura">
-                    </div>
-                    <div>
-                        <label for="select-luna">Luna</label>
-                        <select name="select-luna" id="select-luna">
-                            <option value="Nueva">🌑 Nueva</option>
-                            <option value="Creciente">🌓 Creciente</option>
-                            <option value="Llena">🌕 Llena</option>
-                            <option value="Menguante">🌗 Menguante</option>
-                        </select>
-                    </div>
-                </section>
-                <section>
-                    <h4>Observaciones</h4>
-                    <div class="form-group">
-                        <label>Presencia humana</label>
-                        <div id="checkbox-group-humanos">
-                            <label for="checkbox-guardarecurso"><input type="checkbox" id="checkbox-guardarecurso" name="checkbox-guardarecurso" value="Guarda recursos">🌲 Guardarecursos</input></label>
-                            <label for="checkbox-persona-civil"><input type="checkbox" id="checkbox-persona-civil" name="checkbox-persona-civil" value="Persona civil">🚶 Persona civil</input></label>
-                            <label for="checkbox-policia-fuerza-armada"><input type="checkbox" id="checkbox-policia-fuerza-armada" name="checkbox-policia-fuerza-armada" value="Policía o fuerza armada" class="require">👮 Policía o fuerza armanda</label>
-                            <label for="checkbox-cazador"><input type="checkbox" id="checkbox-cazador" name="checkbox-cazador" value="Cazador">🏹 Cazador</label>
+                        <div>
+                            <label for="camara-select">Cámara</label>
+                            <select name="camara-select" id="camara-select">
+                                <option disabled selected value>Selecciona una camara</option>
+                            </select>
                         </div>
-                    </div>
-                    <div>
-                        <label for="">Observaciones</label>
-                        <textarea name="textarea-observaciones" id="textarea-observaciones"></textarea>
-                    </div>
-                </section>
-            </form>
+                        <div>
+                            <label for="input-date-record">Fecha</label>
+                            <input type="date" name="input-date-record" id="input-date-record">
+                        </div>
+                        <div>
+                            <label for="input-time-record">Hora</label>
+                            <input type="time" name="input-time-record" id="input-time-record">
+                        </div>
+                    </section>
+                    <section>
+                        <h4>Datos del video</h4>
+                        <div class="form-group-block">
+                            <label for="select-especie">Especie</label>
+                            <select name="select-especie" id="select-especie">
+                                <option disabled selected value>Selecciona una especie</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="select-sexo">Sexo</label>
+                            <select name="select-sexo" id="select-sexo">
+                                <option disabled selected value>Selecciona el sexo</option>
+                                <option value="Macho">🟦Macho</option>
+                                <option value="Hembra">🟪Hembra</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="select-edad">Edad</label>
+                            <select name="select-Edad" id="select-edad">
+                                <option disabled selected value>Selecciona el edad</option>
+                                <option value="Macho">Adulto</option>
+                                <option value="Hembra">Juvenil</option>
+                                <option value="Hembra">Cría</option>
+                                <option value="Hembra">No identificado</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Marque las actividades que vio</label>
+                            <div id="checkbox-group-actividades">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="input-cantidad">Cantidad de especies</label>
+                            <input type="number" name="input-cantidad" id="input-cantidad">
+                        </div>
+                    </section>
+                    <section>
+                        <h4>Datos del ambiente</h4>
+                        <div>
+                            <label for="select-clima">Clima</label>
+                            <select name="select-clima" id="select-clima">
+                                <option value="Despejado">🌤️ Despejado</option>
+                                <option value="Lluvioso">🌧️ Lluvioso</option>
+                                <option value="Nublado">🌫️ Nublado</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="input-temperatura">Temperatura</label>
+                            <input type="number" name="input-temperatura" id="input-temperatura">
+                        </div>
+                        <div>
+                            <label for="select-luna">Luna</label>
+                            <select name="select-luna" id="select-luna">
+                                <option value="Nueva">🌑 Nueva</option>
+                                <option value="Creciente">🌓 Creciente</option>
+                                <option value="Llena">🌕 Llena</option>
+                                <option value="Menguante">🌗 Menguante</option>
+                            </select>
+                        </div>
+                    </section>
+                    <section>
+                        <h4>Observaciones</h4>
+                        <div class="form-group">
+                            <label>Presencia humana</label>
+                            <div id="checkbox-group-humanos">
+                                <label for="checkbox-guardarecurso"><input type="checkbox" id="checkbox-guardarecurso" name="checkbox-guardarecurso" value="Guarda recursos">🌲 Guardarecursos</input></label>
+                                <label for="checkbox-persona-civil"><input type="checkbox" id="checkbox-persona-civil" name="checkbox-persona-civil" value="Persona civil">🚶 Persona civil</input></label>
+                                <label for="checkbox-policia-fuerza-armada"><input type="checkbox" id="checkbox-policia-fuerza-armada" name="checkbox-policia-fuerza-armada" value="Policía o fuerza armada" class="require">👮 Policía o fuerza armanda</label>
+                                <label for="checkbox-cazador"><input type="checkbox" id="checkbox-cazador" name="checkbox-cazador" value="Cazador">🏹 Cazador</label>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="">Observaciones</label>
+                            <textarea name="textarea-observaciones" id="textarea-observaciones"></textarea>
+                        </div>
+                    </section>
+                </form>
+            </div>
         </div>
     </div>
 

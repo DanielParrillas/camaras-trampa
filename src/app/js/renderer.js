@@ -6,7 +6,9 @@ const camaras = data.camaras
 const especies = data.especies
 
 //* DOM Elements
-const {selects, rellenarSelectCamaras, rellenarSelectEspecies} = require('../js/dom')
+const {
+    selects, rellenarSelectCamaras, rellenarSelectEspecies, rellenarCheckBoxGroupActividades
+} = require('../js/dom')
 
 let registros = []
 
@@ -19,6 +21,7 @@ function completarPreguntasConData() {
     console.log("%c\tCompletando preguntas...", "background: white; color: #303746")
     rellenarSelectCamaras(camaras)
     rellenarSelectEspecies(especies)
+    rellenarCheckBoxGroupActividades(actividades)
 }
 
 window.addEventListener('load', iniciarApp)
