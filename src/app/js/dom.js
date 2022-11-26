@@ -17,6 +17,7 @@ const buttonNuevo = document.querySelector('#button-nuevo')
 const nav = document.querySelector('#nav')
 const buttonCerrarNuevo = document.querySelector("#button-cerrar-nuevo")
 const buttonAgregarRegistro = document.querySelector("#button-agregar-registro")
+const sectionRecordMessages = document.querySelector('#section-record-messages')
 
 buttonNuevo.addEventListener('click', function() {
     traerAlFrente(newRecordSection)
@@ -94,7 +95,7 @@ const capturarCheckBoxSeleccionados = function(element) {
     })
     return selecionados
 }
-
+//! Tiene potencial
 const crearAlerta = function (element, mensaje, tipo = "error") {
     let padre = element.parentNode
     let divAlert = document.createElement('div')
@@ -105,6 +106,12 @@ const crearAlerta = function (element, mensaje, tipo = "error") {
     padre.insertBefore(divAlert, padre.firstChild)
 }
 
+const lanzarMensaje = function (mensaje, tipo='error') {
+    sectionRecordMessages.classList.remove('hidden')
+    sectionRecordMessages.classList.add(`alert-${tipo}`)
+    sectionRecordMessages.innerHTML = mensaje
+}
+
 module.exports = {
     "rellenarSelectCamaras": rellenarSelectCamaras,
     "rellenarSelectEspecies": rellenarSelectEspecies,
@@ -113,6 +120,7 @@ module.exports = {
     "quitarBlur": quitarBlur,
     "capturarCheckBoxSeleccionados": capturarCheckBoxSeleccionados,
     "crearAlerta": crearAlerta,
+    "lanzarMensaje": lanzarMensaje,
     "section": {
         "newRecordSection": newRecordSection,
         "nav": nav,

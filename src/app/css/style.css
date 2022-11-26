@@ -110,9 +110,6 @@ a {
   margin-bottom: 1rem;
   padding: 0 2rem;
 }
-#new-record-section .container-round-border form > section > div .alert {
-  display: block;
-}
 #new-record-section .container-round-border form label {
   padding: 0 1rem;
 }

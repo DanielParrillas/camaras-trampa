@@ -7,7 +7,7 @@ const DataEspecies = data.especies
 
 //* DOM Elements
 const {
-    select, rellenarSelectCamaras, rellenarSelectEspecies, rellenarCheckBoxGroupActividades, quitarBlur, aplicarBlur, section, input, checkbox, button, capturarCheckBoxSeleccionados, crearAlerta
+    select, rellenarSelectCamaras, rellenarSelectEspecies, rellenarCheckBoxGroupActividades, quitarBlur, aplicarBlur, section, input, checkbox, button, capturarCheckBoxSeleccionados, crearAlerta, lanzarMensaje
 } = require('../js/dom')
 
 button.agregarRegistro.addEventListener('click', agregarRegistro)
@@ -42,7 +42,6 @@ function iniciarApp() {
     console.log("%cAplicacion iniciada", "background: white; color: #212529")
     completarPreguntasConData()
     quitarBlur(section.nav)
-    crearAlerta(input.cantidad, "Hola")
 }
 
 function completarPreguntasConData() {
@@ -79,8 +78,10 @@ function capturarDatos() {
 
 function comprobarRegistro() {
     //?registroActivo.link
-    if(registroActivo === "") {
-
+    console.log(registroActivo.link)
+    if(registroActivo.link === "" || registroActivo.link === null) {
+        lanzarMensaje("Debes especificar una cantidad")
+        return
     }
 }
 
