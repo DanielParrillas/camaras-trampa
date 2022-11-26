@@ -84,7 +84,26 @@ const rellenarCheckBoxGroupActividades = function (actividades) {
     console.log("%cSe relleno el checkBoxGroup de actividades", "color: #1ac888")
 }
 
+const capturarCheckBoxSeleccionados = function(element) {
+    let selecionados = []
+    let labels = Array.from(element.children)
+    labels.forEach(label => {
+        if(label.firstChild.checked) {
+            selecionados.push(label.lastChild.textContent)
+        }
+    })
+    return selecionados
+}
 
+const crearAlerta = function (element, mensaje, tipo = "error") {
+    let padre = element.parentNode
+    let divAlert = document.createElement('div')
+    divAlert.classList.add('alert')
+    divAlert.classList.add(`alert-${tipo}`)
+    divAlert.innerHTML = mensaje
+
+    padre.insertBefore(divAlert, padre.firstChild)
+}
 
 module.exports = {
     "rellenarSelectCamaras": rellenarSelectCamaras,
@@ -92,6 +111,8 @@ module.exports = {
     "rellenarCheckBoxGroupActividades": rellenarCheckBoxGroupActividades,
     "aplicarBlur":aplicarBlur,
     "quitarBlur": quitarBlur,
+    "capturarCheckBoxSeleccionados": capturarCheckBoxSeleccionados,
+    "crearAlerta": crearAlerta,
     "section": {
         "newRecordSection": newRecordSection,
         "nav": nav,

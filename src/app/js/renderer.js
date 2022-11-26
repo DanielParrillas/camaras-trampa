@@ -7,7 +7,7 @@ const DataEspecies = data.especies
 
 //* DOM Elements
 const {
-    select, rellenarSelectCamaras, rellenarSelectEspecies, rellenarCheckBoxGroupActividades, quitarBlur, aplicarBlur, section, input, checkbox, button
+    select, rellenarSelectCamaras, rellenarSelectEspecies, rellenarCheckBoxGroupActividades, quitarBlur, aplicarBlur, section, input, checkbox, button, capturarCheckBoxSeleccionados, crearAlerta
 } = require('../js/dom')
 
 button.agregarRegistro.addEventListener('click', agregarRegistro)
@@ -15,7 +15,6 @@ button.agregarRegistro.addEventListener('click', agregarRegistro)
 //*Class
 class WildRecord {
     constructor(link, camara, fecha, hora, especie, sexo, actividades, cantidad, clima, temperatura, luna, humanos, observaciones) {
-        this.id = Math.random()
         this.link = link
         this.camara = camara
         this.fecha = fecha
@@ -30,6 +29,10 @@ class WildRecord {
         this.humanos = humanos
         this.observaciones = observaciones
     }
+
+    setId () {
+        this.id = Math.random()
+    }
 }
 
 let registros = []
@@ -39,6 +42,7 @@ function iniciarApp() {
     console.log("%cAplicacion iniciada", "background: white; color: #212529")
     completarPreguntasConData()
     quitarBlur(section.nav)
+    crearAlerta(input.cantidad, "Hola")
 }
 
 function completarPreguntasConData() {
@@ -50,6 +54,7 @@ function completarPreguntasConData() {
 
 function agregarRegistro() {
     capturarDatos()
+    comprobarRegistro()
 }
 
 function capturarDatos() {
@@ -59,17 +64,24 @@ function capturarDatos() {
     hora = input.time.value
     especie = select.especie.value
     sexo = select.sexo.value
-    actividades = checkbox.actividades
+    actividades = capturarCheckBoxSeleccionados(checkbox.actividades)
     cantidad = input.cantidad.value
     clima = select.clima.value
     temperatura = select.clima.value
     luna = select.luna.value
-    humanos = checkbox.humanos
+    humanos = capturarCheckBoxSeleccionados(checkbox.humanos)
     observaciones = input.observaciones.value
 
     registroActivo = new WildRecord(link, camara, fecha, hora, especie, sexo, actividades, cantidad, clima, temperatura, luna, humanos, observaciones)
     
-    console.log( registroActivo)
+    console.log(registroActivo)
+}
+
+function comprobarRegistro() {
+    //?registroActivo.link
+    if(registroActivo === "") {
+
+    }
 }
 
 window.addEventListener('load', iniciarApp)

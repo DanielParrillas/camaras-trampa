@@ -110,6 +110,9 @@ a {
   margin-bottom: 1rem;
   padding: 0 2rem;
 }
+#new-record-section .container-round-border form > section > div .alert {
+  display: block;
+}
 #new-record-section .container-round-border form label {
   padding: 0 1rem;
 }
@@ -186,4 +189,13 @@ button.export img {
 }
 button:hover {
   box-shadow: 0 0 5px 2px #212529;
+}
+
+.alert {
+  width: 100%;
+  height: 1rem;
+}
+.alert-error {
+  background-color: #d32752;
+  color: white;
 }
