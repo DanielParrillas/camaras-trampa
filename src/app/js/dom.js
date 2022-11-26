@@ -15,13 +15,16 @@ const checkboxGroupHumanos = document.querySelector('#checkbox-group-humanos')
 const textareaObservaciones = document.querySelector('#textarea-observaciones')
 const buttonNuevo = document.querySelector('#button-nuevo')
 const nav = document.querySelector('#nav')
-const buttonCerrarNevo = document.querySelector("#button-cerrar-nuevo")
+const buttonCerrarNuevo = document.querySelector("#button-cerrar-nuevo")
+const buttonAgregarRegistro = document.querySelector("#button-agregar-registro")
 
 buttonNuevo.addEventListener('click', function() {
     traerAlFrente(newRecordSection)
+    buttonAgregarRegistro.classList.remove('hidden')
 })
-buttonCerrarNevo.addEventListener('click', function() {
+buttonCerrarNuevo.addEventListener('click', function() {
     llevarAlFondo(newRecordSection)
+    buttonAgregarRegistro.classList.add('hidden')
 })
 
 function traerAlFrente(element) {
@@ -81,17 +84,19 @@ const rellenarCheckBoxGroupActividades = function (actividades) {
     console.log("%cSe relleno el checkBoxGroup de actividades", "color: #1ac888")
 }
 
+
+
 module.exports = {
     "rellenarSelectCamaras": rellenarSelectCamaras,
     "rellenarSelectEspecies": rellenarSelectEspecies,
     "rellenarCheckBoxGroupActividades": rellenarCheckBoxGroupActividades,
     "aplicarBlur":aplicarBlur,
     "quitarBlur": quitarBlur,
-    "sections": {
+    "section": {
         "newRecordSection": newRecordSection,
         "nav": nav,
     },
-    "inputs": {
+    "input": {
         "url": urlInput,
         "date": dateRecordInput,
         "time": timeRecordInput,
@@ -99,15 +104,19 @@ module.exports = {
         "temperatura": inputTemperatura,
         "observaciones": textareaObservaciones
     },
-    "selects": {
+    "select": {
         "camara": camaraSelect,
         "sexo": sexoSelect,
         "edad": selectEdad,
         "clima": selectClima,
-        "luna": selectLuna
+        "luna": selectLuna,
+        "especie": selectEspecie
     },
     "checkbox": {
         "actividades": checkboxGroupActividades,
         "humanos": checkboxGroupHumanos
+    },
+    "button": {
+        "agregarRegistro":buttonAgregarRegistro
     }
 }
