@@ -58,6 +58,7 @@ a {
   width: 100vw;
   background-color: #303746;
   color: #fff;
+  position: relative;
 }
 
 #new-record-section {
@@ -66,13 +67,26 @@ a {
   width: 100vw;
   justify-content: center;
   align-items: center;
+  position: absolute;
 }
 #new-record-section .container-round-border {
+  width: 50rem;
   height: 90%;
   max-width: 95%;
   padding: 2rem 2rem;
   border-radius: 1rem;
   background: #fff;
+  position: relative;
+}
+#new-record-section .container-round-border #button-cerrar-nuevo {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0.5rem 1.8rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: #d32752;
+  padding: 0;
 }
 #new-record-section .container-round-border form {
   color: #303746;
@@ -93,14 +107,31 @@ a {
   padding: 0 1rem;
 }
 
+.blur {
+  filter: blur(3px);
+  opacity: 0.5;
+}
+
+.hidden {
+  z-index: -1;
+}
+
+.on-top {
+  z-index: 1;
+}
+
 nav {
   background-color: var(--color-dark);
   color: var(--color-light);
   width: 100vw;
-  height: 2rem;
+  height: 3rem;
   display: flex;
   align-items: center;
+  gap: 1rem;
   padding-left: 1rem;
+  position: absolute;
+  transition: ease-in-out;
+  transition-duration: 400ms;
 }
 nav a {
   color: var(--color-light);
@@ -121,4 +152,31 @@ form .form-group > div {
 }
 form .form-group-block {
   flex-direction: column;
+}
+
+button {
+  display: flex;
+  width: 6rem;
+  height: 2.2rem;
+  align-items: center;
+  border: none;
+  border-radius: 0.5rem;
+  transition: ease-in-out;
+  transition-duration: 200ms;
+}
+button img {
+  width: 1.5rem;
+}
+button.new {
+  background-color: #1ac888;
+}
+button.export {
+  background-color: #326dee;
+  color: white;
+}
+button.export img {
+  color: white;
+}
+button:hover {
+  box-shadow: 0 0 5px 2px #212529;
 }

@@ -11,8 +11,13 @@
 </head>
 <body>
     <div class="background">
-        <div class="new-record-section" id="new-record-section">
+        <nav class="blur" id="nav">
+            <button id="button-nuevo" class="new"><img src="./img/add.svg" alt="Add" >Nuevo</button>
+            <button id="button-exportar" class="export"><img src="./img/vertical_align_bottom.svg" alt="export-icon">Exportar</button>
+        </nav>
+        <div class="new-record-section hidden" id="new-record-section">
             <div class="container-round-border">
+                <button id="button-cerrar-nuevo" class="btn btn-danger">x</button>
                 <form action="" id="registro">
                     <section>
                         <h4>Datos del video</h4>

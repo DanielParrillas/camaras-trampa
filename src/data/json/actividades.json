@@ -1,12 +1,62 @@
 [
     {
         "id":1,
-        "actividad": "Buscando comida",
-        "emoticon": "🍲"
-    },
-    {
+        "actividad":"Buscando Comida",
+        "emoticon":"🔎"
+        },
+        {
         "id":2,
+        "actividad":"Caminando",
+        "emoticon":"🐾"
+        },
+        {
+        "id":3,
         "actividad":"Cazando",
-        "emoticon":  "🏹"
-    }
+        "emoticon":"🏹"
+        },
+        {
+        "id":4,
+        "actividad":"Comiendo",
+        "emoticon":"🍲"
+        },
+        {
+        "id":5,
+        "actividad":"Corriendo",
+        "emoticon":"👟"
+        },
+        {
+        "id":6,
+        "actividad":"Defecando",
+        "emoticon":"💩"
+        },
+        {
+        "id":7,
+        "actividad":"Posando",
+        "emoticon":"📸"
+        },
+        {
+        "id":8,
+        "actividad":"Quieto",
+        "emoticon":"🗿"
+        },
+        {
+        "id":9,
+        "actividad":"Revoloteando",
+        "emoticon":"🐤"
+        },
+        {
+        "id":10,
+        "actividad":"Saltando",
+        "emoticon":"🦘"
+        },
+        {
+        "id":11,
+        "actividad":"Vocalizando",
+        "emoticon":"🎤"
+        },
+        {
+        "id":12,
+        "actividad":"Volando",
+        "emoticon":"🛫"
+        }
 ]

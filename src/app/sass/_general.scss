@@ -40,6 +40,7 @@ a {
     width: 100vw;
     background-color: #303746;
     color: #fff;
+    position: relative;
 }
 
 #new-record-section {
@@ -48,13 +49,27 @@ a {
     width: 100vw;
     justify-content: center;
     align-items: center;
+    position: absolute;
 
     .container-round-border {
+        width: 50rem;
         height: 90%;
         max-width: 95%;
         padding: 2rem 2rem;
         border-radius: 1rem;
         background: #fff;
+        position: relative;
+
+        #button-cerrar-nuevo {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0.5rem 1.8rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            background-color: #d32752;
+            padding: 0;
+        }
         form {
             color: #303746;
             overflow-y: scroll;
@@ -77,5 +92,17 @@ a {
             }
         }
     }
-    
+}
+
+.blur {
+    filter: blur(3px);
+    opacity: 0.5;
+}
+
+.hidden {
+    z-index: -1;
+}
+
+.on-top {
+    z-index: 1;
 }

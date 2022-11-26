@@ -2,11 +2,14 @@ nav {
     background-color: var(--color-dark);
     color: var(--color-light);
     width: 100vw;
-    height: 2rem;
+    height: 3rem;
     display: flex;
     align-items: center;
+    gap: 1rem;
     padding-left: 1rem;
-
+    position: absolute;
+    transition: ease-in-out;
+    transition-duration: 400ms;
     a {
         color: var(--color-light);
     }

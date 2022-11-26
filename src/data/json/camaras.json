@@ -2,15 +2,186 @@
     {
         "id":1,
         "nombre":"01C",
-        "latitud":13.7645,
-        "longitud":-88.19825,
-        "sendero": "La Quebrachera"
-    },
-    {
-        "id":2  ,
+        "sendero":"LA QUEBRACHERA"
+        },
+        {
+        "id":2,
         "nombre":"02C",
-        "latitud":13.7955,
-        "longitud":-89.2545,
-        "sendero": "La Garrobera"
-    }
+        "sendero":"LA QUEBRACHERA"
+        },
+        {
+        "id":3,
+        "nombre":"03C",
+        "sendero":"LA GARROBERA "
+        },
+        {
+        "id":4,
+        "nombre":"04C",
+        "sendero":"LA GARROBERA"
+        },
+        {
+        "id":5,
+        "nombre":"05C",
+        "sendero":"LA QUEBRACHERA "
+        },
+        {
+        "id":6,
+        "nombre":"06C",
+        "sendero":"LA QUEBRACHERA "
+        },
+        {
+        "id":7,
+        "nombre":"07C",
+        "sendero":""
+        },
+        {
+        "id":8,
+        "nombre":"08C",
+        "sendero":"EL BAMBU"
+        },
+        {
+        "id":9,
+        "nombre":"09C",
+        "sendero":"LA QUEBRACHERA"
+        },
+        {
+        "id":10,
+        "nombre":"10C",
+        "sendero":"LA QUEBRACHERA "
+        },
+        {
+        "id":11,
+        "nombre":"11C",
+        "sendero":"FUENTE DE LA PILA "
+        },
+        {
+        "id":12,
+        "nombre":"12C",
+        "sendero":"FUENTE DE LA PILA "
+        },
+        {
+        "id":13,
+        "nombre":"13B",
+        "sendero":"EL MANONE "
+        },
+        {
+        "id":14,
+        "nombre":"14B",
+        "sendero":"EL MANONE"
+        },
+        {
+        "id":15,
+        "nombre":"15B",
+        "sendero":""
+        },
+        {
+        "id":16,
+        "nombre":"16B",
+        "sendero":""
+        },
+        {
+        "id":17,
+        "nombre":"17A",
+        "sendero":"LA ZOMPOPERA "
+        },
+        {
+        "id":18,
+        "nombre":"18A",
+        "sendero":"LA ZOMPOPERA "
+        },
+        {
+        "id":19,
+        "nombre":"19A",
+        "sendero":"EL CARBON "
+        },
+        {
+        "id":20,
+        "nombre":"20A",
+        "sendero":"EL CARBON "
+        },
+        {
+        "id":21,
+        "nombre":"21A",
+        "sendero":"LA PEÑA BLANCA "
+        },
+        {
+        "id":22,
+        "nombre":"22A",
+        "sendero":"LA PEÑA BLANCA "
+        },
+        {
+        "id":23,
+        "nombre":"23A",
+        "sendero":"EL CARBON "
+        },
+        {
+        "id":24,
+        "nombre":"24A",
+        "sendero":"EL CARBON "
+        },
+        {
+        "id":25,
+        "nombre":"25A",
+        "sendero":"EL CARBON "
+        },
+        {
+        "id":26,
+        "nombre":"26A",
+        "sendero":"EL CARBON "
+        },
+        {
+        "id":27,
+        "nombre":"27A",
+        "sendero":"EL CARBON"
+        },
+        {
+        "id":28,
+        "nombre":"28A",
+        "sendero":"EL CARBON "
+        },
+        {
+        "id":29,
+        "nombre":"29C",
+        "sendero":"LA FUENTE "
+        },
+        {
+        "id":30,
+        "nombre":"30C",
+        "sendero":"LA FUENTE "
+        },
+        {
+        "id":31,
+        "nombre":"31B",
+        "sendero":"LA PILOTA "
+        },
+        {
+        "id":32,
+        "nombre":"32B",
+        "sendero":"LA PILOTA "
+        },
+        {
+        "id":33,
+        "nombre":"33B",
+        "sendero":"EL BAMBU"
+        },
+        {
+        "id":34,
+        "nombre":"34B",
+        "sendero":"EL BAMBU "
+        },
+        {
+        "id":35,
+        "nombre":"35B",
+        "sendero":"EL BAMBU "
+        },
+        {
+        "id":36,
+        "nombre":"36B",
+        "sendero":"EL BAMBU"
+        },
+        {
+        "id":37,
+        "nombre":"37B",
+        "sendero":"EL LIMITE "
+        }
 ]

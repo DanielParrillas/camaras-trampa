@@ -13,6 +13,36 @@ const inputTemperatura = document.querySelector('#input-temperatura')
 const selectLuna = document.querySelector('#select-luna')
 const checkboxGroupHumanos = document.querySelector('#checkbox-group-humanos')
 const textareaObservaciones = document.querySelector('#textarea-observaciones')
+const buttonNuevo = document.querySelector('#button-nuevo')
+const nav = document.querySelector('#nav')
+const buttonCerrarNevo = document.querySelector("#button-cerrar-nuevo")
+
+buttonNuevo.addEventListener('click', function() {
+    traerAlFrente(newRecordSection)
+})
+buttonCerrarNevo.addEventListener('click', function() {
+    llevarAlFondo(newRecordSection)
+})
+
+function traerAlFrente(element) {
+    element.classList.remove('hidden')
+    element.classList.add('on-top')
+    aplicarBlur(nav)
+}
+
+function llevarAlFondo(element) {
+    element.classList.add('hidden')
+    element.classList.remove('on-top')
+    quitarBlur(nav)
+}
+
+const aplicarBlur = function(element) {
+    element.classList.add('blur')
+}
+
+const quitarBlur = function(element) {
+    element.classList.remove('blur')
+}
 
 const rellenarSelectCamaras = function (camaras) {
     let contenido = null
@@ -27,15 +57,16 @@ const rellenarSelectCamaras = function (camaras) {
 }
 
 const rellenarSelectEspecies = function (especies) {
-    let contenido = null
-    especies.forEach(especie => {
-        contenido = especie.genero + " - " + especie.especie + " - " +especie.comun
+    let contenido = null;
+    especies.forEach((especie) => {
+        contenido =
+            especie.genero + " - " + especie.especie + " - " + especie.comun;
         selectEspecie.innerHTML += `
-        <option value="${especie.id}">${contenido}</option>
-        `
+            <option value="${especie.id}">${contenido}</option>
+            `;
     });
-    console.log("%cSe relleno el select de especies", "color: #1ac888")
-}
+    console.log("%cSe relleno el select de especies", "color: #1ac888");
+};
 
 const rellenarCheckBoxGroupActividades = function (actividades) {
     let name = null
@@ -54,8 +85,11 @@ module.exports = {
     "rellenarSelectCamaras": rellenarSelectCamaras,
     "rellenarSelectEspecies": rellenarSelectEspecies,
     "rellenarCheckBoxGroupActividades": rellenarCheckBoxGroupActividades,
+    "aplicarBlur":aplicarBlur,
+    "quitarBlur": quitarBlur,
     "sections": {
-        "newRecordSection": newRecordSection
+        "newRecordSection": newRecordSection,
+        "nav": nav,
     },
     "inputs": {
         "url": urlInput,
