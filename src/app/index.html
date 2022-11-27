@@ -10,15 +10,22 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <div class="background">
+    <div class="background" id="background">
         <nav class="blur" id="nav">
             <button id="button-nuevo" class="new"><img src="./img/add.svg" alt="Add" >Nuevo</button>
             <button id="button-exportar" class="export"><img src="./img/vertical_align_bottom.svg" alt="export-icon">Exportar</button>
-            <div id="section-record-messages" class="alert hidden"></div>
         </nav>
-        <div class="new-record-section hidden" id="new-record-section">
+        <div id="section-messages" class="popup-container hidden">
+            <div class="background"></div>
             <div class="container-round-border">
-                <button id="button-cerrar-nuevo" class="btn btn-danger">x</button>
+                <button id="button-cerrar-message" class="btn btn-danger button-cerrar-ventana">x</button>
+                <p id="message-content"></p>
+            </div>
+        </div>
+        <div id="new-record-section" class="popup-container hidden">
+            <div class="background"></div>
+            <div class="container-round-border">
+                <button id="button-cerrar-nuevo" class="btn btn-danger button-cerrar-ventana">x</button>
                 <button id="button-agregar-registro" class="btn btn-success hidden">Agregar</button>
                 <form action="" id="registro">
                     <section>
@@ -53,7 +60,7 @@
                         <div>
                             <label for="select-sexo">Sexo</label>
                             <select name="select-sexo" id="select-sexo">
-                                <option disabled selected value>Selecciona el sexo</option>
+                                <option disabled selected value></option>
                                 <option value="Macho">🟦Macho</option>
                                 <option value="Hembra">🟪Hembra</option>
                             </select>
@@ -61,7 +68,7 @@
                         <div>
                             <label for="select-edad">Edad</label>
                             <select name="select-Edad" id="select-edad">
-                                <option disabled selected value>Selecciona el edad</option>
+                                <option disabled selected value></option>
                                 <option value="Macho">Adulto</option>
                                 <option value="Hembra">Juvenil</option>
                                 <option value="Hembra">Cría</option>
@@ -75,7 +82,7 @@
                         </div>
                         <div>
                             <label for="input-cantidad">Cantidad de especies</label>
-                            <input type="number" name="input-cantidad" id="input-cantidad">
+                            <input type="number" name="input-cantidad" id="input-cantidad" min="0" max="5">
                         </div>
                     </section>
                     <section>
@@ -83,6 +90,7 @@
                         <div>
                             <label for="select-clima">Clima</label>
                             <select name="select-clima" id="select-clima">
+                                <option disabled selected value></option>
                                 <option value="Despejado">🌤️ Despejado</option>
                                 <option value="Lluvioso">🌧️ Lluvioso</option>
                                 <option value="Nublado">🌫️ Nublado</option>
@@ -95,6 +103,7 @@
                         <div>
                             <label for="select-luna">Luna</label>
                             <select name="select-luna" id="select-luna">
+                                <option disabled selected value></option>
                                 <option value="Nueva">🌑 Nueva</option>
                                 <option value="Creciente">🌓 Creciente</option>
                                 <option value="Llena">🌕 Llena</option>

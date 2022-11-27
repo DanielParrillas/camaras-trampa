@@ -17,7 +17,12 @@ const buttonNuevo = document.querySelector('#button-nuevo')
 const nav = document.querySelector('#nav')
 const buttonCerrarNuevo = document.querySelector("#button-cerrar-nuevo")
 const buttonAgregarRegistro = document.querySelector("#button-agregar-registro")
-const sectionRecordMessages = document.querySelector('#section-record-messages')
+const sectionMessages = document.querySelector('#section-messages')
+const background = document.querySelector('#background')
+const messageContent = document.querySelector('#message-content')
+const buttonCerrarMessage = document.querySelector('#button-cerrar-message')
+
+let ventanaAbierta
 
 buttonNuevo.addEventListener('click', function() {
     traerAlFrente(newRecordSection)
@@ -28,24 +33,54 @@ buttonCerrarNuevo.addEventListener('click', function() {
     buttonAgregarRegistro.classList.add('hidden')
 })
 
-function traerAlFrente(element) {
+buttonCerrarMessage.addEventListener('click', function () {
+    cerrarMensaje()
+})
+
+const mostrarMensaje = function (content, element) {
+    ventanaAbierta = element
+    aplicarBlur(element)
+    messageContent.innerHTML = content
+    traerAlFrente(sectionMessages)
+}
+
+const cerrarMensaje = function () {
+    sectionMessages.classList.add('hidden')
+    quitarBlur(ventanaAbierta)
+    messageContent.innerHTML = ""
+}
+
+const traerAlFrente = function (element) {
     element.classList.remove('hidden')
-    element.classList.add('on-top')
-    aplicarBlur(nav)
+    aplicarBlur()
+    quitarBlur(element)
 }
 
-function llevarAlFondo(element) {
+const llevarAlFondo = function (element) {
     element.classList.add('hidden')
-    element.classList.remove('on-top')
-    quitarBlur(nav)
+    quitarBlur()
 }
 
-const aplicarBlur = function(element) {
-    element.classList.add('blur')
+const aplicarBlur = function (element='All') {
+    if(element === 'All') {
+        let sections = Array.from(background.children)
+        sections.forEach(section => {
+            section.classList.add('blur')
+        })
+    } else {
+        element.classList.add('blur')
+    }
 }
 
-const quitarBlur = function(element) {
-    element.classList.remove('blur')
+const quitarBlur = function (element='All') {
+    if(element === 'All') {
+        let sections = Array.from(background.children)
+        sections.forEach(section => {
+            section.classList.remove('blur')
+        })
+    } else {
+        element.classList.remove('blur')
+    }
 }
 
 const rellenarSelectCamaras = function (camaras) {
@@ -57,7 +92,7 @@ const rellenarSelectCamaras = function (camaras) {
         <option value="${camara.id}">${contenido}</option>
         `
     });
-    console.log("%cSe relleno el select de camaras", "color: #1ac888")
+    console.log("%c\tSe relleno el select de camaras", "color: #1ac888")
 }
 
 const rellenarSelectEspecies = function (especies) {
@@ -69,7 +104,7 @@ const rellenarSelectEspecies = function (especies) {
             <option value="${especie.id}">${contenido}</option>
             `;
     });
-    console.log("%cSe relleno el select de especies", "color: #1ac888");
+    console.log("%c\tSe relleno el select de especies", "color: #1ac888");
 };
 
 const rellenarCheckBoxGroupActividades = function (actividades) {
@@ -82,7 +117,7 @@ const rellenarCheckBoxGroupActividades = function (actividades) {
         <label for="${name}"><input type="checkbox" name="${name}" id="${name}" value="${actividad.id}">${contenido}</label>
         `
     })
-    console.log("%cSe relleno el checkBoxGroup de actividades", "color: #1ac888")
+    console.log("%c\tSe relleno el checkBoxGroup de actividades", "color: #1ac888")
 }
 
 const capturarCheckBoxSeleccionados = function(element) {
@@ -120,7 +155,7 @@ module.exports = {
     "quitarBlur": quitarBlur,
     "capturarCheckBoxSeleccionados": capturarCheckBoxSeleccionados,
     "crearAlerta": crearAlerta,
-    "lanzarMensaje": lanzarMensaje,
+    "mostrarMensaje": mostrarMensaje,
     "section": {
         "newRecordSection": newRecordSection,
         "nav": nav,
