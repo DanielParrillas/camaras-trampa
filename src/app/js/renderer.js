@@ -54,8 +54,10 @@ class WildRecord {
 function iniciarApp() {
     console.log("Iniciando app...")
     getData()
+    console.log("Cargando registros locales...")
+    cargarRegistrosLocales()
     completarPreguntasConData()
-    rellenarTabla(registros)
+    actualizarTabla()
     console.log("%cAplicacion iniciada", "color: #f6c31c")
     quitarBlur()
 }
@@ -78,6 +80,7 @@ function agregarRegistro() {
     if (registroValido()) {
         registroActivo.setId()
         registros.push(registroActivo)
+        guardarRegistrosEnLocal()
         console.log('%c\tSe agrego un nuevo registro %c',"color:#3BACD9",registros.length)
         registroActivo = null
         cerrarSectionRegistro()
@@ -93,6 +96,7 @@ function actualizarTabla() {
 
 function borrarRegistro(index) {
     registros[index].eliminado = true
+    guardarRegistrosEnLocal()
     console.log("Se borro el registro ", index)
     actualizarTabla()
 }
@@ -170,6 +174,17 @@ function registroValido() {
         return false
     }
     return true
+}
+
+function cargarRegistrosLocales () {
+    registros = Array.from(JSON.parse(localStorage.getItem('wildRecords')))
+    console.log("Registros en local:")
+    console.log(registros)
+}
+
+function guardarRegistrosEnLocal () {
+    console.log("%cSe guardaron los registros en local", "color: #1ac888")
+    localStorage.setItem("wildRecords", JSON.stringify(registros))
 }
 
 window.addEventListener('load', iniciarApp)
