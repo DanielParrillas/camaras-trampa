@@ -21,21 +21,28 @@ const sectionMessages = document.querySelector('#section-messages')
 const background = document.querySelector('#background')
 const messageContent = document.querySelector('#message-content')
 const buttonCerrarMessage = document.querySelector('#button-cerrar-message')
+const sectionRegistros = document.querySelector('#section-registros')
 
 let ventanaAbierta
 
 buttonNuevo.addEventListener('click', function() {
     traerAlFrente(newRecordSection)
     buttonAgregarRegistro.classList.remove('hidden')
+    sectionRegistros.classList.add('hidden')
 })
 buttonCerrarNuevo.addEventListener('click', function() {
-    llevarAlFondo(newRecordSection)
-    buttonAgregarRegistro.classList.add('hidden')
+    cerrarSectionRegistro()
 })
 
 buttonCerrarMessage.addEventListener('click', function () {
     cerrarMensaje()
 })
+
+const cerrarSectionRegistro = function () {
+    llevarAlFondo(newRecordSection)
+    buttonAgregarRegistro.classList.add('hidden')
+    sectionRegistros.classList.remove('hidden')
+}
 
 const mostrarMensaje = function (content, element) {
     ventanaAbierta = element
@@ -156,6 +163,7 @@ module.exports = {
     "capturarCheckBoxSeleccionados": capturarCheckBoxSeleccionados,
     "crearAlerta": crearAlerta,
     "mostrarMensaje": mostrarMensaje,
+    "cerrarSectionRegistro": cerrarSectionRegistro,
     "section": {
         "newRecordSection": newRecordSection,
         "nav": nav,

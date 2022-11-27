@@ -7,7 +7,7 @@ let dataEspecies
 
 //* DOM Elements
 const {
-    select, rellenarSelectCamaras, rellenarSelectEspecies, rellenarCheckBoxGroupActividades, quitarBlur, aplicarBlur, section, input, checkbox, button, capturarCheckBoxSeleccionados, crearAlerta, mostrarMensaje
+    select, rellenarSelectCamaras, rellenarSelectEspecies, rellenarCheckBoxGroupActividades, quitarBlur, aplicarBlur, section, input, checkbox, button, capturarCheckBoxSeleccionados, crearAlerta, mostrarMensaje, cerrarSectionRegistro
 } = require('../js/dom')
 
 button.agregarRegistro.addEventListener('click', agregarRegistro)
@@ -62,7 +62,14 @@ function completarPreguntasConData() {
 
 function agregarRegistro() {
     capturarDatos()
-    comprobarRegistro()
+    if (registroValido()) {
+        registroActivo.setId()
+        registros.push(registroActivo)
+        registroActivo = null
+        cerrarSectionRegistro()
+        //limpiarSectionRegistro()
+    }
+    console.log(registros)
 }
 
 function capturarDatos() {
@@ -82,59 +89,58 @@ function capturarDatos() {
     observaciones = input.observaciones.value
 
     registroActivo = new WildRecord(link, camara, fecha, hora, especie, sexo, edad, actividades, cantidad, clima, temperatura, luna, humanos, observaciones)
-    
-    console.log(registroActivo)
 }
 
-function comprobarRegistro() {
+function registroValido() {
     /*if(registroActivo.link === "") {
         mostrarMensaje("Debes poner el link del video", section.newRecordSection)
         return
     }*/
     if(registroActivo.camara === "") {
         mostrarMensaje("Debes especificar una camara", section.newRecordSection)
-        return
+        return false
     }
     if(registroActivo.fecha === "") {
         mostrarMensaje("Debes poner una fecha", section.newRecordSection)
-        return
+        return false
     }
     if(registroActivo.hora === "") {
         mostrarMensaje("Debes indicar una hora", section.newRecordSection)
-        return
+        return false
     }
     if(registroActivo.especie === "") {
         mostrarMensaje("Debes seleccionar una especie de la lista", section.newRecordSection)
-        return
+        return false
     }
     if(registroActivo.sexo === "") {
         mostrarMensaje("Debes indicar el sexo de la especie")
-        return
+        return false
     }
     if(registroActivo.edad === "") {
         mostrarMensaje("Debes indicar la edad de la especie")
-        return
+        return false
     }
     if(registroActivo.actividades.length === 0) {
         mostrarMensaje("Debes seleccionar al menos 1 actividad")
-        return
+        return false
     }
     if(registroActivo.cantidad < 1 || isNaN(registroActivo.cantidad)) {
         mostrarMensaje("Debe describir al menos 1 especie")
-        return
+        return false
     }
     if(registroActivo.clima === "") {
         mostrarMensaje("Debes indicar el clima, observandolo como se encuentra en el video")
-        return
+        return false
     }
     if(registroActivo.temperatura === "") {
         mostrarMensaje("Debes indicar la temperatura, puedes verla en una esquina del video")
-        return
+        return false
     }
     if(registroActivo.luna === "") {
         mostrarMensaje("Debes seleccionar la fase en que esta la luna, puedes verla en una esquina del video")
-        return
+        return false
     }
+    return true
 }
 
 window.addEventListener('load', iniciarApp)
