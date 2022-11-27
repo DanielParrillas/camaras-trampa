@@ -7,10 +7,24 @@ let dataEspecies
 
 //* DOM Elements
 const {
-    select, rellenarSelectCamaras, rellenarSelectEspecies, rellenarCheckBoxGroupActividades, quitarBlur, aplicarBlur, section, input, checkbox, button, capturarCheckBoxSeleccionados, crearAlerta, mostrarMensaje, cerrarSectionRegistro
+    select, rellenarSelectCamaras, rellenarSelectEspecies, rellenarCheckBoxGroupActividades, quitarBlur, aplicarBlur, section, input, checkbox, button, capturarCheckBoxSeleccionados, crearAlerta, mostrarMensaje, cerrarSectionRegistro, rellenarTabla, obtenerIndex
 } = require('../js/dom')
 
 button.agregarRegistro.addEventListener('click', agregarRegistro)
+
+section.tableRegistros.addEventListener('click', (e) => {
+    let index
+    if(e.target.value === "borrar-registro") {
+        index = obtenerIndex(e.target)
+        borrarRegistro(index)
+    } else if (e.target.value === "editar-registro") {
+        index = obtenerIndex(e.target)
+        editarRegistro(index)
+    }
+})
+
+let registros = []
+let registroActivo
 
 //*Class
 class WildRecord {
@@ -29,20 +43,19 @@ class WildRecord {
         this.luna = luna
         this.humanos = humanos
         this.observaciones = observaciones
+        this.eliminado = false
     }
 
     setId () {
-        this.id = Math.random()
+        this.id = registros.length
     }
 }
-
-let registros = []
-let registroActivo
 
 function iniciarApp() {
     console.log("Iniciando app...")
     getData()
     completarPreguntasConData()
+    rellenarTabla(registros)
     console.log("%cAplicacion iniciada", "color: #f6c31c")
     quitarBlur()
 }
@@ -65,11 +78,27 @@ function agregarRegistro() {
     if (registroValido()) {
         registroActivo.setId()
         registros.push(registroActivo)
+        console.log('%c\tSe agrego un nuevo registro %c',"color:#3BACD9",registros.length)
         registroActivo = null
         cerrarSectionRegistro()
         //limpiarSectionRegistro()
+        actualizarTabla()
     }
-    console.log(registros)
+}
+
+function actualizarTabla() {
+    let registrosValidos = registros.filter(registro => registro.eliminado === false)
+    rellenarTabla(registrosValidos)
+}
+
+function borrarRegistro(index) {
+    registros[index].eliminado = true
+    console.log("Se borro el registro ", index)
+    actualizarTabla()
+}
+
+function editarRegistro(index) {
+    console.log("Se editara el registro ", index)
 }
 
 function capturarDatos() {

@@ -5,13 +5,13 @@
 
 // todo================  LOCAL IMPORTS ================
 
-// *-------- Main Imports --------
-@import './config';
-@import './general';
-@import './media-query';
-
 // *-------- Components --------
 @import './components/navbar';
 @import './components/form';
 @import './components/buttons';
 @import './components/alerts';
+
+// *-------- Main Imports --------
+@import './config';
+@import './general';
+@import './media-query';

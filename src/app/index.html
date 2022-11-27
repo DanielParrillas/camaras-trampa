@@ -25,7 +25,7 @@
         <div id="new-record-section" class="popup-container hidden">
             <div class="background"></div>
             <div class="container-round-border">
-                <button id="button-cerrar-nuevo" class="btn btn-danger button-cerrar-ventana">x</button>
+                <button id="button-cerrar-nuevo" class="btn btn-danger button-cerrar-ventana small-button">x</button>
                 <button id="button-agregar-registro" class="btn btn-success hidden">Agregar</button>
                 <form action="" id="registro">
                     <section>
@@ -67,12 +67,12 @@
                         </div>
                         <div>
                             <label for="select-edad">Edad</label>
-                            <select name="select-Edad" id="select-edad">
+                            <select name="select-edad" id="select-edad">
                                 <option disabled selected value></option>
-                                <option value="Macho">Adulto</option>
-                                <option value="Hembra">Juvenil</option>
-                                <option value="Hembra">Cría</option>
-                                <option value="Hembra">No identificado</option>
+                                <option value="Adulto">Adulto</option>
+                                <option value="Juvenil">Juvenil</option>
+                                <option value="Cría">Cría</option>
+                                <option value="No identificado">No identificado</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -131,14 +131,25 @@
             </div>
         </div>
         <div id="section-registros" class="blur">
-            <div class="container-round-border">
-                <table>
+            <div class="container-round-border table-responsive">
+                <table id="table-registros" class="table table-hover">
                     <thead>
-                        <th>Id</th>
-                        <th>Espece</th>
-                        <th></th>
+                        <th scope="col">#</th>
+                        <th scope="col">Camara</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Hora</th>
+                        <th scope="col">Especie</th>
+                        <th scope="col">Sexo</th>
+                        <th scope="col">Edad</th>
+                        <th scope="col">Cantidad</th>
+                        <th scope="col">Clima</th>
+                        <th scope="col">Temperatura</th>
+                        <th scope="col">Luna</th>
+                        <th scope="col"></th>
                     </thead>
-                    <tbody></tbody>
+                    <tbody id="table-registros-body">
+                        <tr></tr>
+                    </tbody>
                 </table>
             </div>
         </div>

@@ -1,4 +1,78 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+nav {
+  background-color: var(--color-dark);
+  color: var(--color-light);
+  width: 100vw;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-left: 1rem;
+  position: absolute;
+}
+nav a {
+  color: var(--color-light);
+}
+
+form label {
+  font-weight: 400;
+  font-size: medium;
+}
+form .form-group {
+  display: flex;
+  flex-direction: column;
+}
+form .form-group > div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+form .form-group-block {
+  flex-direction: column;
+}
+
+button {
+  display: flex;
+  width: 6rem;
+  height: 2.2rem;
+  align-items: center;
+  border: none;
+  border-radius: 0.5rem;
+  transition: ease-in-out;
+  transition-duration: 200ms;
+}
+button img {
+  width: 1.5rem;
+}
+button.new {
+  background-color: #1ac888;
+}
+button.export {
+  background-color: #326dee;
+  color: white;
+}
+button.export img {
+  color: white;
+}
+button:hover {
+  box-shadow: 0 0 5px 2px #212529;
+}
+
+.small-button {
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+}
+
+.alert {
+  width: 100%;
+  height: 1rem;
+}
+.alert-error {
+  background-color: #d32752;
+  color: white;
+}
+
 :root {
   --color-primary: #326dee;
   --color-secondary: #1ac888;
@@ -89,10 +163,7 @@ a {
   top: 0;
   right: 0;
   margin: 0.5rem 0.5rem;
-  width: 1.5rem;
-  height: 1.5rem;
   background-color: #d32752;
-  padding: 0;
 }
 
 #new-record-section .container-round-border {
@@ -154,74 +225,4 @@ a {
   color: #303746;
   margin: 4rem 1rem 1rem 1rem;
   width: 100%;
-}
-
-nav {
-  background-color: var(--color-dark);
-  color: var(--color-light);
-  width: 100vw;
-  height: 3rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding-left: 1rem;
-  position: absolute;
-  transition: ease-in-out;
-  transition-duration: 200ms;
-}
-nav a {
-  color: var(--color-light);
-}
-
-form label {
-  font-weight: 400;
-  font-size: medium;
-}
-form .form-group {
-  display: flex;
-  flex-direction: column;
-}
-form .form-group > div {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-}
-form .form-group-block {
-  flex-direction: column;
-}
-
-button {
-  display: flex;
-  width: 6rem;
-  height: 2.2rem;
-  align-items: center;
-  border: none;
-  border-radius: 0.5rem;
-  transition: ease-in-out;
-  transition-duration: 200ms;
-}
-button img {
-  width: 1.5rem;
-}
-button.new {
-  background-color: #1ac888;
-}
-button.export {
-  background-color: #326dee;
-  color: white;
-}
-button.export img {
-  color: white;
-}
-button:hover {
-  box-shadow: 0 0 5px 2px #212529;
-}
-
-.alert {
-  width: 100%;
-  height: 1rem;
-}
-.alert-error {
-  background-color: #d32752;
-  color: white;
 }

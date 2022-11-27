@@ -22,6 +22,8 @@ const background = document.querySelector('#background')
 const messageContent = document.querySelector('#message-content')
 const buttonCerrarMessage = document.querySelector('#button-cerrar-message')
 const sectionRegistros = document.querySelector('#section-registros')
+const tableRegistros = document.querySelector('#table-registros')
+const tableRegistrosBody = document.querySelector('#table-registros-body')
 
 let ventanaAbierta
 
@@ -37,6 +39,40 @@ buttonCerrarNuevo.addEventListener('click', function() {
 buttonCerrarMessage.addEventListener('click', function () {
     cerrarMensaje()
 })
+
+const rellenarTabla = function (lista) {
+    tableRegistrosBody.innerHTML = ""
+    let fila = null
+    lista.forEach((item, index) => {
+        fila = `
+            <tr id="fila-${item.id}" scope="row">
+                <td>${index}</td>
+                <td>${item.camara}</td>
+                <td>${item.fecha}</td>
+                <td>${item.hora}</td>
+                <td>${item.especie}</td>
+                <td>${item.sexo}</td>
+                <td>${item.edad}</td>
+                <td>${item.cantidad}</td>
+                <td>${item.clima}</td>
+                <td>${item.temperatura}</td>
+                <td>${item.luna}</td>
+                <td>
+                <button class="btn btn-danger small-button" value="borrar-registro">-</button>
+                <button class="btn btn-warning small-button" value="editar-registro">✏</button>
+                </td>
+            </tr>
+        `
+        tableRegistrosBody.innerHTML += fila
+    })
+}
+
+const obtenerIndex = function (button) {
+    let fila = button.parentNode.parentNode
+    let filaId = fila.id
+    let index = filaId.replace('fila-', '')
+    return parseInt(index)
+}
 
 const cerrarSectionRegistro = function () {
     llevarAlFondo(newRecordSection)
@@ -164,9 +200,12 @@ module.exports = {
     "crearAlerta": crearAlerta,
     "mostrarMensaje": mostrarMensaje,
     "cerrarSectionRegistro": cerrarSectionRegistro,
+    "rellenarTabla": rellenarTabla,
+    "obtenerIndex":obtenerIndex,
     "section": {
         "newRecordSection": newRecordSection,
         "nav": nav,
+        "tableRegistros": tableRegistros,
     },
     "input": {
         "url": urlInput,
