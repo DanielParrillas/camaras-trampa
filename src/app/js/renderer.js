@@ -1,9 +1,9 @@
 //* Data
 const data = require('../../data/data')
 
-let dataActividades
-let dataCamaras
-let dataEspecies
+let dataActividades = []
+let dataCamaras = []
+let dataEspecies = []
 
 //* DOM Elements
 const {
@@ -55,10 +55,47 @@ class WildRecord {
         this.humanos = humanos
         this.observaciones = observaciones
         this.eliminado = false
+        this.id = null
     }
 
-    setId () {
-        this.id = registros.length
+    static setId (wildRecord) {
+        wildRecord.id = registros.length
+    }
+
+    static generateValues (wildRecord) {
+        let values = {
+            link: wildRecord.link,
+            video: wildRecord.video,
+            camara: WildRecord.getCamaraValue(wildRecord),
+            fecha: wildRecord.fecha,
+            hora: wildRecord.hora,
+            especie: WildRecord.getEspecieValue(wildRecord),
+            sexo: wildRecord.sexo,
+            edad: wildRecord.edad,
+            actividades: wildRecord.actividades,
+            cantidad: wildRecord.cantidad,
+            clima: wildRecord.clima,
+            temperatura: wildRecord.temperatura,
+            luna: wildRecord.luna,
+            humanos: wildRecord.humanos,
+            observaciones: wildRecord.observaciones,
+            id: wildRecord.id
+        }
+
+        return values
+    }
+
+    static getEspecieValue(wildRecord) {
+        let especieObj = dataEspecies.find(especie => especie.id == wildRecord.especie)
+        console.log(especieObj)
+        let value = especieObj.genero + " " + especieObj.especie
+        return value
+    }
+
+    static getCamaraValue(wildRecord) {
+        let camaraObj = dataCamaras.find(camara => camara.id == wildRecord.camara)
+        let value = camaraObj.nombre + " - " + camaraObj.sendero
+        return value
     }
 }
 
@@ -89,7 +126,7 @@ function completarPreguntasConData() {
 function agregarRegistro() {
     capturarDatos()
     if (registroValido()) {
-        registroActivo.setId()
+        WildRecord.setId(registroActivo)
         registros.push(registroActivo)
         guardarRegistrosEnLocal()
         console.log('%c\tSe agrego un nuevo registro %c',"color:#3BACD9",registros.length)
@@ -102,11 +139,19 @@ function agregarRegistro() {
 }
 
 function actualizarTabla(filtro = 'all') {
-    let registrosValidos
+    let registrosValidos = [];
     if (filtro === 'all') {
-        registrosValidos = registros.filter(registro => registro.eliminado === false)
+        registros.forEach(registro => {
+            if  (registro.eliminado === false) {
+                registrosValidos.push(WildRecord.generateValues(registro))
+            }
+        })
     } else if (filtro === 'eliminados') {
-        registrosValidos = registros.filter(registro => registro.eliminado === true)
+        registros.forEach(registro => {
+            if  (registro.eliminado === true) {
+                registrosValidos.push(WildRecord.generateValues(registro))
+            }
+        })
     }
     rellenarTabla(registrosValidos, filtro)
 }
@@ -142,7 +187,7 @@ function capturarDatos() {
     actividades = capturarCheckBoxSeleccionados(checkbox.actividades)
     cantidad = parseInt(input.cantidad.value)
     clima = select.clima.value
-    temperatura = input.temperatura.value
+    temperatura = parseInt(input.temperatura.value)
     luna = select.luna.value
     humanos = capturarCheckBoxSeleccionados(checkbox.humanos)
     observaciones = input.observaciones.value;

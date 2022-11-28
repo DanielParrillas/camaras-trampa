@@ -230,7 +230,7 @@ const capturarCheckBoxSeleccionados = function(element) {
     let labels = Array.from(element.children)
     labels.forEach(label => {
         if(label.firstChild.checked) {
-            selecionados.push(label.lastChild.textContent)
+            selecionados.push(label.lastChild.value)
         }
     })
     return selecionados
