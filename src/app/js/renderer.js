@@ -7,10 +7,17 @@ let dataEspecies
 
 //* DOM Elements
 const {
-    select, rellenarSelectCamaras, rellenarSelectEspecies, rellenarCheckBoxGroupActividades, quitarBlur, aplicarBlur, section, input, checkbox, button, capturarCheckBoxSeleccionados, crearAlerta, mostrarMensaje, cerrarSectionRegistro, rellenarTabla, obtenerIndex
+    select, rellenarSelectCamaras, rellenarSelectEspecies, rellenarCheckBoxGroupActividades, quitarBlur, aplicarBlur, section, input, checkbox, button, capturarCheckBoxSeleccionados, crearAlerta, mostrarMensaje, cerrarSectionRegistro, rellenarTabla, obtenerIndex, rellenarFormulario, limpiarFormulario
 } = require('../js/dom')
 
 button.agregarRegistro.addEventListener('click', agregarRegistro)
+
+button.buttonPapelera.addEventListener('click', () => {
+    actualizarTabla('eliminados')
+})
+button.buttonRegistros.addEventListener('click', () => {
+    actualizarTabla()
+})
 
 section.tableRegistros.addEventListener('click', (e) => {
     let index
@@ -20,6 +27,9 @@ section.tableRegistros.addEventListener('click', (e) => {
     } else if (e.target.value === "editar-registro") {
         index = obtenerIndex(e.target)
         editarRegistro(index)
+    } else if (e.target.value === "restaurar-registro") {
+        index = obtenerIndex(e.target)
+        restaurarRegistro(index)
     }
 })
 
@@ -28,8 +38,9 @@ let registroActivo
 
 //*Class
 class WildRecord {
-    constructor(link, camara, fecha, hora, especie, sexo, edad, actividades, cantidad, clima, temperatura, luna, humanos, observaciones) {
+    constructor(link, video, camara, fecha, hora, especie, sexo, edad, actividades, cantidad, clima, temperatura, luna, humanos, observaciones) {
         this.link = link
+        this.video = video
         this.camara = camara
         this.fecha = fecha
         this.hora = hora
@@ -83,15 +94,21 @@ function agregarRegistro() {
         guardarRegistrosEnLocal()
         console.log('%c\tSe agrego un nuevo registro %c',"color:#3BACD9",registros.length)
         registroActivo = null
+        limpiarFormulario()
         cerrarSectionRegistro()
         //limpiarSectionRegistro()
         actualizarTabla()
     }
 }
 
-function actualizarTabla() {
-    let registrosValidos = registros.filter(registro => registro.eliminado === false)
-    rellenarTabla(registrosValidos)
+function actualizarTabla(filtro = 'all') {
+    let registrosValidos
+    if (filtro === 'all') {
+        registrosValidos = registros.filter(registro => registro.eliminado === false)
+    } else if (filtro === 'eliminados') {
+        registrosValidos = registros.filter(registro => registro.eliminado === true)
+    }
+    rellenarTabla(registrosValidos, filtro)
 }
 
 function borrarRegistro(index) {
@@ -100,13 +117,22 @@ function borrarRegistro(index) {
     console.log("Se borro el registro ", index)
     actualizarTabla()
 }
+function restaurarRegistro(index) {
+    registros[index].eliminado = false
+    guardarRegistrosEnLocal()
+    console.log("Se restauro el registro ", index)
+    actualizarTabla('eliminados')
+}
 
 function editarRegistro(index) {
+    registroActivo = registros[index]
+    rellenarFormulario(registroActivo)
     console.log("Se editara el registro ", index)
 }
 
 function capturarDatos() {
     link = input.url.value
+    video = input.video.value
     camara = select.camara.value
     fecha = input.date.value
     hora = input.time.value
@@ -119,9 +145,9 @@ function capturarDatos() {
     temperatura = input.temperatura.value
     luna = select.luna.value
     humanos = capturarCheckBoxSeleccionados(checkbox.humanos)
-    observaciones = input.observaciones.value
+    observaciones = input.observaciones.value;
 
-    registroActivo = new WildRecord(link, camara, fecha, hora, especie, sexo, edad, actividades, cantidad, clima, temperatura, luna, humanos, observaciones)
+    registroActivo = new WildRecord(link, video, camara, fecha, hora, especie, sexo, edad, actividades, cantidad, clima, temperatura, luna, humanos, observaciones)
 }
 
 function registroValido() {
@@ -129,6 +155,10 @@ function registroValido() {
         mostrarMensaje("Debes poner el link del video", section.newRecordSection)
         return
     }*/
+    if(registroActivo.video === "") {
+        mostrarMensaje("Debes poner el nombre del video", section.newRecordSection)
+        return
+    }
     if(registroActivo.camara === "") {
         mostrarMensaje("Debes especificar una camara", section.newRecordSection)
         return false
@@ -177,7 +207,13 @@ function registroValido() {
 }
 
 function cargarRegistrosLocales () {
-    registros = Array.from(JSON.parse(localStorage.getItem('wildRecords')))
+    try {
+        registros = Array.from(JSON.parse(localStorage.getItem('wildRecords')))
+    } catch(e) {
+        console.error("No se puedo recuperar los registros")
+        console.error(e)
+        registros = []
+    }
     console.log("Registros en local:")
     console.log(registros)
 }

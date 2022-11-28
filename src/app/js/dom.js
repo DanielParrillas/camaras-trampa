@@ -1,5 +1,6 @@
 const newRecordSection = document.querySelector('#new-record-section');
 const urlInput = document.querySelector('#url-input')
+const inputNombreVideo = document.querySelector('#input-nombre-video')
 const camaraSelect = document.querySelector('#camara-select')
 const selectEspecie = document.querySelector('#select-especie')
 const dateRecordInput = document.querySelector('#input-date-record')
@@ -24,8 +25,21 @@ const buttonCerrarMessage = document.querySelector('#button-cerrar-message')
 const sectionRegistros = document.querySelector('#section-registros')
 const tableRegistros = document.querySelector('#table-registros')
 const tableRegistrosBody = document.querySelector('#table-registros-body')
+const buttonPapelera = document.querySelector('#button-papelera')
+const buttonRegistros = document.querySelector('#button-registros')
+const formRegistro = document.querySelector('#registro')
 
-let ventanaAbierta
+let ventanaAbierta = null
+
+buttonPapelera.addEventListener('click', () => {
+    ocultarElemento(buttonPapelera)
+    mostrarElemento(buttonRegistros)
+})
+
+buttonRegistros.addEventListener('click', () => {
+    ocultarElemento(buttonRegistros)
+    mostrarElemento(buttonPapelera)
+})
 
 buttonNuevo.addEventListener('click', function() {
     traerAlFrente(newRecordSection)
@@ -40,13 +54,62 @@ buttonCerrarMessage.addEventListener('click', function () {
     cerrarMensaje()
 })
 
-const rellenarTabla = function (lista) {
+const limpiarFormulario = function () {
+    formRegistro.reset()
+}
+
+const rellenarFormulario = function (datos) {
+    /**
+     *  this.link = link
+        this.camara = camara
+        this.fecha = fecha
+        this.hora = hora
+        this.especie = especie
+        this.sexo = sexo
+        this.edad = edad
+        this.actividades = actividades
+        this.cantidad = cantidad
+        this.clima = clima
+        this.temperatura = temperatura
+        this.luna = luna
+        this.humanos = humanos
+        this.observaciones = observaciones
+        this.eliminado = false
+     */
+    urlInput.nodeValue = datos.link
+    camaraSelect.nodeValue = datos.camara
+    //dateRecordInput.nodeValue = datos.fecha
+}
+
+const ocultarElemento = function (element) {
+    element.classList.add('hidden')
+}
+
+const mostrarElemento = function (element) {
+    element.classList.remove('hidden')
+}
+
+const rellenarTabla = function (lista, filtro = 'all') {
     tableRegistrosBody.innerHTML = ""
     let fila = null
+    let botones = ""
+
+    if (filtro === 'all') {
+        botones =  `
+        <button class="btn btn-danger small-button" value="borrar-registro">-</button>
+        <button class="btn btn-warning small-button" value="editar-registro">✏</button>
+        `
+    } else if (filtro === 'eliminados') {
+        botones = `
+        <button class="btn btn-info small-button" value="restaurar-registro">↪</button>
+        `
+    }
+
     lista.forEach((item, index) => {
         fila = `
             <tr id="fila-${item.id}" scope="row">
                 <td>${index}</td>
+                <td>${item.video}</td>
                 <td>${item.camara}</td>
                 <td>${item.fecha}</td>
                 <td>${item.hora}</td>
@@ -58,8 +121,7 @@ const rellenarTabla = function (lista) {
                 <td>${item.temperatura}</td>
                 <td>${item.luna}</td>
                 <td>
-                <button class="btn btn-danger small-button" value="borrar-registro">-</button>
-                <button class="btn btn-warning small-button" value="editar-registro">✏</button>
+                ${botones}
                 </td>
             </tr>
         `
@@ -202,6 +264,8 @@ module.exports = {
     "cerrarSectionRegistro": cerrarSectionRegistro,
     "rellenarTabla": rellenarTabla,
     "obtenerIndex":obtenerIndex,
+    "rellenarFormulario":rellenarFormulario,
+    "limpiarFormulario": limpiarFormulario,
     "section": {
         "newRecordSection": newRecordSection,
         "nav": nav,
@@ -209,6 +273,7 @@ module.exports = {
     },
     "input": {
         "url": urlInput,
+        "video":inputNombreVideo,
         "date": dateRecordInput,
         "time": timeRecordInput,
         "cantidad": inputCantidad,
@@ -228,6 +293,8 @@ module.exports = {
         "humanos": checkboxGroupHumanos
     },
     "button": {
-        "agregarRegistro":buttonAgregarRegistro
+        "agregarRegistro":buttonAgregarRegistro,
+        "buttonPapelera":buttonPapelera,
+        "buttonRegistros":buttonRegistros
     }
 }

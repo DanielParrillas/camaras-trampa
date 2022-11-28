@@ -14,11 +14,13 @@
         <nav class="blur" id="nav">
             <button id="button-nuevo" class="new"><img src="./img/add.svg" alt="Add" >Nuevo</button>
             <button id="button-exportar" class="export"><img src="./img/vertical_align_bottom.svg" alt="export-icon">Exportar</button>
+            <button id="button-registros" class="btn btn-light hidden">Registros</button>
+            <button id="button-papelera" class="btn btn-light">Papelera</button>
         </nav>
         <div id="section-messages" class="popup-container hidden">
             <div class="background"></div>
             <div class="container-round-border">
-                <button id="button-cerrar-message" class="btn btn-danger button-cerrar-ventana">x</button>
+                <button id="button-cerrar-message" class="btn btn-danger button-cerrar-ventana small-button">x</button>
                 <p id="message-content"></p>
             </div>
         </div>
@@ -33,6 +35,10 @@
                         <div>
                             <label for="url-input">Link del video</label>
                             <input type="url" name="url-input" id="url-input">
+                        </div>
+                        <div>
+                            <label for="input-nombre-video">Nombre del video</label>
+                            <input type="text" name="input-nombre-video" id="input-nombre-video">
                         </div>
                         <div>
                             <label for="camara-select">Cámara</label>
@@ -135,6 +141,7 @@
                 <table id="table-registros" class="table table-hover">
                     <thead>
                         <th scope="col">#</th>
+                        <th scope="col">Video</th>
                         <th scope="col">Camara</th>
                         <th scope="col">Fecha</th>
                         <th scope="col">Hora</th>
