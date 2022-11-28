@@ -56,10 +56,25 @@ class WildRecord {
         this.observaciones = observaciones
         this.eliminado = false
         this.id = null
+        this.creado = null
+        this.actualizado = null
+        this.creadoPor = null
     }
 
     static setId (wildRecord) {
         wildRecord.id = registros.length
+    }
+
+    static setCreado (wildRecord) {
+        wildRecord.creado = Date.now()
+    }
+
+    static setcreadoPor (wildRecord) {
+        wildRecord.creadoPor = 'user'
+    }
+
+    static setActualizado (wildRecord) {
+        wildRecord.actualizado = Date.now()
     }
 
     static generateValues (wildRecord) {
@@ -127,6 +142,8 @@ function agregarRegistro() {
     capturarDatos()
     if (registroValido()) {
         WildRecord.setId(registroActivo)
+        WildRecord.setCreado(registroActivo)
+        WildRecord.setcreadoPor(registroActivo)
         registros.push(registroActivo)
         guardarRegistrosEnLocal()
         console.log('%c\tSe agrego un nuevo registro %c',"color:#3BACD9",registros.length)

@@ -28,6 +28,8 @@ const tableRegistrosBody = document.querySelector('#table-registros-body')
 const buttonPapelera = document.querySelector('#button-papelera')
 const buttonRegistros = document.querySelector('#button-registros')
 const formRegistro = document.querySelector('#registro')
+const hiddenId = document.querySelector('#input-hidden-id')
+const buttonModicar = document.querySelector('#button-modificar-registro')
 
 let ventanaAbierta = null
 
@@ -42,9 +44,7 @@ buttonRegistros.addEventListener('click', () => {
 })
 
 buttonNuevo.addEventListener('click', function() {
-    traerAlFrente(newRecordSection)
-    buttonAgregarRegistro.classList.remove('hidden')
-    sectionRegistros.classList.add('hidden')
+    mostrarFormulario()
 })
 buttonCerrarNuevo.addEventListener('click', function() {
     cerrarSectionRegistro()
@@ -54,31 +54,37 @@ buttonCerrarMessage.addEventListener('click', function () {
     cerrarMensaje()
 })
 
+function mostrarFormulario(estado='new') {
+    traerAlFrente(newRecordSection)
+    sectionRegistros.classList.add('hidden')
+    if (estado === 'new') {
+        buttonAgregarRegistro.classList.remove('hidden')
+        
+    } else if (estado === 'edit') {
+    }
+}
+
 const limpiarFormulario = function () {
     formRegistro.reset()
 }
 
-const rellenarFormulario = function (datos) {
-    /**
-     *  this.link = link
-        this.camara = camara
-        this.fecha = fecha
-        this.hora = hora
-        this.especie = especie
-        this.sexo = sexo
-        this.edad = edad
-        this.actividades = actividades
-        this.cantidad = cantidad
-        this.clima = clima
-        this.temperatura = temperatura
-        this.luna = luna
-        this.humanos = humanos
-        this.observaciones = observaciones
-        this.eliminado = false
-     */
-    urlInput.nodeValue = datos.link
-    camaraSelect.nodeValue = datos.camara
-    //dateRecordInput.nodeValue = datos.fecha
+const rellenarFormulario = function (registro) {
+    hiddenId.value = registro.id
+    urlInput.value = registro.link
+    camaraSelect.value = registro.camara
+    dateRecordInput.value = registro.fecha
+    timeRecordInput.value = registro.hora
+    selectEspecie.value = registro.especie
+    sexoSelect.value = registro.sexo
+    selectEdad.value = registro.edad
+    //❗rellenarCheckBoxGroupActividades()
+    inputCantidad.value = registro.cantidad
+    selectClima.value = registro.clima
+    inputTemperatura.value = registro.temperatura
+    selectLuna.value = registro.luna
+    // ❗rellenarCheckBoxGroupHumanos()
+    textareaObservaciones.value = registro.observaciones
+    mostrarFormulario('edit')
 }
 
 const ocultarElemento = function (element) {
@@ -204,7 +210,7 @@ const rellenarSelectEspecies = function (especies) {
     let contenido = null;
     especies.forEach((especie) => {
         contenido =
-            especie.genero + " - " + especie.especie + " - " + especie.comun;
+            especie.clasificacion + ' - ' + especie.genero + " - " + especie.especie + " - " + especie.comun;
         selectEspecie.innerHTML += `
             <option value="${especie.id}">${contenido}</option>
             `;
